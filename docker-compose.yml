@@ -1,0 +1,17 @@
+name: ollama-server
+
+services:
+  ollama:
+    image: ollama/ollama
+    restart: always
+    ports:
+      - 11434:11434
+    volumes:
+      - ./ollama:/root/.ollama
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [ gpu ]
