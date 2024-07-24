@@ -1,13 +1,13 @@
-name: ollama-server
+name: ollama
 
 services:
-  ollama:
+  app:
     image: ollama/ollama
     restart: always
     ports:
       - 11434:11434
     volumes:
-      - ./ollama:/root/.ollama
+      - ./data:/root/.ollama
     deploy:
       resources:
         reservations:
