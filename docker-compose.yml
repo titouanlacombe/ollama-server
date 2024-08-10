@@ -8,6 +8,9 @@ services:
       - 11434:11434
     volumes:
       - ./data:/root/.ollama
+    networks:
+      - ollama
+    hostname: ollama
     deploy:
       resources:
         reservations:
@@ -15,3 +18,7 @@ services:
             - driver: nvidia
               count: 1
               capabilities: [ gpu ]
+
+networks:
+  ollama:
+    driver: bridge
