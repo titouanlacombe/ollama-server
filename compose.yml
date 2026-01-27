@@ -12,7 +12,7 @@ services:
       OLLAMA_FLASH_ATTENTION: 1
       OLLAMA_KV_CACHE_TYPE: q8_0
     networks:
-      - ollama
+      - llm
     hostname: ollama
     deploy:
       resources:
@@ -23,6 +23,6 @@ services:
               capabilities: [ gpu ]
 
 networks:
-  ollama:
-    name: ollama
-    driver: bridge
+  llm:
+    name: llm
+    external: true
